@@ -1,0 +1,251 @@
+
+/* ===========================
+   Forex Ritik — Global Styles
+   Top-notch look with smooth transitions, overlays & animations
+   =========================== */
+
+:root{
+  --bg:#0a0f1e;
+  --bg2:#0e1630;
+  --card:#0f1b3d99;
+  --text:#e6edff;
+  --muted:#98a3c7;
+  --acc:#5be3ff;
+  --acc2:#8b5dff;
+  --warn:#ffcb6b;
+  --ok:#6bffb8;
+  --danger:#ff6b8b;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --radius: 20px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+               "Noto Sans", "Liberation Sans", Arial, "Apple Color Emoji",
+               "Segoe UI Emoji", "Segoe UI Symbol";
+  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% -20%, #1b2a5a66, transparent 70%),
+    radial-gradient(1000px 500px at 100% 20%, #4b1b7a55, transparent 70%),
+    linear-gradient(120deg, var(--bg), var(--bg2));
+  background-attachment: fixed;
+  line-height:1.6;
+}
+
+/* Utility */
+.container{max-width:1200px;margin:0 auto;padding:24px}
+.grid{display:grid;gap:22px}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.hidden{display:none}
+
+/* Topbar */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:linear-gradient(180deg, #0a0f1eF2, #0a0f1eCC 60%, transparent);
+  backdrop-filter:saturate(130%) blur(10px);
+  border-bottom:1px solid #ffffff11;
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;gap:16px
+}
+.brand{
+  display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.6px
+}
+.brand .logo{
+  width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
+  background:conic-gradient(from 120deg, var(--acc), var(--acc2), var(--warn), var(--acc));
+  box-shadow: inset 0 0 30px #ffffff33, var(--shadow);
+}
+.brand span{font-size:20px}
+.nav a{
+  color:var(--text);text-decoration:none;font-weight:600;opacity:.85;margin:0 8px;position:relative
+}
+.nav a:hover{opacity:1}
+.nav a::after{
+  content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;
+  background:linear-gradient(90deg, var(--acc), var(--acc2));
+  transition:width .25s ease;
+}
+.nav a:hover::after{width:100%}
+.menu{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap
+}
+.cta{
+  padding:10px 16px;border-radius:999px;border:none;cursor:pointer;font-weight:700;
+  background:linear-gradient(90deg, var(--acc), var(--acc2));color:#001628;
+  box-shadow:0 6px 22px #5be3ff33, inset 0 0 0 0 #fff0;transition:transform .15s ease;
+}
+.cta:hover{transform:translateY(-2px)}
+.burger{display:none}
+@media (max-width:760px){
+  .menu{display:none}
+  .burger{display:inline-flex;gap:8px;align-items:center}
+  .mobile-menu{
+    position:fixed;inset:64px 12px auto 12px;background:#0b1226ee;border:1px solid #ffffff1a;
+    border-radius:16px;padding:12px;backdrop-filter:blur(10px);z-index:40;display:none;
+  }
+  .mobile-menu.open{display:block}
+  .mobile-menu a{display:block;padding:10px 12px;margin:6px;border-radius:10px;background:#ffffff08}
+}
+
+/* Hero */
+.hero{
+  position:relative;overflow:hidden;border-bottom:1px solid #ffffff12
+}
+.hero .container{padding-top:60px;padding-bottom:60px}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;background:#ffffff10;border:1px solid #ffffff22;
+  padding:8px 12px;border-radius:999px;font-size:14px
+}
+.badge .dot{width:8px;height:8px;border-radius:999px;background:var(--ok);box-shadow:0 0 18px var(--ok)}
+h1{
+  font-size: clamp(32px, 5vw, 56px);margin:14px 0 8px;line-height:1.1;
+  letter-spacing:.4px;
+}
+.gradient{
+  background:linear-gradient(90deg, var(--acc), var(--acc2));
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.sub{color:var(--muted);max-width:780px}
+
+/* Floating particles */
+.particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.p{position:absolute;width:8px;height:8px;border-radius:12px;background:radial-gradient(circle at 30% 30%, #fff, #ffffff00);
+   animation: float 14s linear infinite;opacity:.35;filter:blur(.8px)}
+@keyframes float{
+  0%{transform:translateY(0) translateX(0) scale(1)}
+  50%{transform:translateY(-40px) translateX(20px) scale(1.2)}
+  100%{transform:translateY(0) translateX(0) scale(1)}
+}
+
+/* Sections / Cards */
+.section{padding:52px 0}
+.card{
+  background:linear-gradient(180deg, #0e1838ee, #0b142eeb);
+  border:1px solid #ffffff14;border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:20px;position:relative;overflow:hidden
+}
+.card::before{
+  content:"";position:absolute;inset:-2px;z-index:0;border-radius:inherit;
+  background:linear-gradient(120deg, #ffffff05, transparent 40%, #ffffff06);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude; padding:1px;
+}
+.card h3{margin:4px 0 6px}
+.card .muted{color:var(--muted)}
+
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(16px);transition:all .6s cubic-bezier(.2,.6,.2,1)}
+.reveal.show{opacity:1;transform:none}
+
+/* Footer */
+footer{
+  border-top:1px solid #ffffff12;background:#0a0f1ecc
+}
+.footer-grid{
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px
+}
+@media (max-width:900px){.footer-grid{grid-template-columns:1fr}}
+.footer-col h4{margin:0 0 10px}
+.small{font-size:13px;color:var(--muted)}
+.footer-links a{display:block;color:var(--text);opacity:.8;margin:6px 0;text-decoration:none}
+.footer-links a:hover{opacity:1}
+
+/* Page Transition Overlay */
+.page-transition{
+  position:fixed;inset:0;background:radial-gradient(1200px 800px at 50% 50%, #142a66, #0a0f1e);
+  transform:scaleX(0);transform-origin:left center;z-index:1000;pointer-events:none;
+}
+.page-transition.active{animation: sweep .7s ease forwards}
+@keyframes sweep{
+  0%{transform:scaleX(0)}
+  40%{transform:scaleX(1)}
+  100%{transform:scaleX(0);transform-origin:right center}
+}
+
+/* Buttons & pills */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;border:1px solid #ffffff22;border-radius:12px;
+  padding:10px 14px;background:#ffffff0a;text-decoration:none;color:var(--text);font-weight:700
+}
+.btn:hover{background:#ffffff14}
+.pill{padding:6px 10px;border-radius:999px;background:#ffffff10;border:1px solid #ffffff22}
+
+/* Tables */
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:12px;border-bottom:1px solid #ffffff15;text-align:left}
+.table th{color:#c7d2ff}
+
+/* Forms */
+input, textarea, select{
+  width:100%;padding:12px 14px;border-radius:12px;background:#0b142e;border:1px solid #ffffff22;
+  color:var(--text);outline:none
+}
+label{display:block;margin:10px 0 6px}
+form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){form .row{grid-template-columns:1fr}}
+input:focus, textarea:focus{border-color:var(--acc)}
+.success{color:var(--ok)} .error{color:var(--danger)}
+
+/* Header banner small pages */
+.page-hero{
+  padding:40px 0;border-bottom:1px solid #ffffff12;background:linear-gradient(180deg,#0a0f1eee,#0a0f1e);
+}
+.page-hero h1{margin:0}
+.breadcrumbs{color:var(--muted);font-size:14px}
+
+/* Accent rings */
+.rings{
+  position:absolute;inset:auto auto -60px -60px;width:260px;height:260px;border-radius:50%;
+  border:2px dashed #89f2ff33;filter:blur(.3px);animation:spin 24s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+
+/* Footer styling */
+.site-footer{
+  margin-top:60px;
+  padding:30px 20px;
+  background:linear-gradient(90deg,var(--bg2),var(--bg));
+  text-align:center;
+  border-top:1px solid #ffffff22;
+}
+.site-footer a{color:var(--acc);text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+
+/* Pricing cards selectable */
+.pricing-card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:24px;
+  box-shadow:var(--shadow);
+  transition:transform .3s, box-shadow .3s;
+  cursor:pointer;
+}
+.pricing-card:hover{
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 20px 40px rgba(0,0,0,.45);
+}
+
+/* Background animations */
+body::before, body::after{
+  content:"";
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  pointer-events:none;
+  background:radial-gradient(circle at 20% 30%, #5be3ff22 0%, transparent 40%),
+             radial-gradient(circle at 80% 70%, #8b5dff22 0%, transparent 40%),
+             radial-gradient(circle at 50% 50%, #ff6b8b22 0%, transparent 40%);
+  animation: floatbg 20s infinite alternate;
+}
+@keyframes floatbg{
+  0%{transform:translate(0,0)}
+  100%{transform:translate(40px,-30px)}
+}
